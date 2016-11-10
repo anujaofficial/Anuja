@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script>
+user_idle = null;
+idle_time = false;
+idle_wait = 108000;
+
+function($){
+	
+	$(document).ready(function(){
+		$('*').bind('mousemove keydown scroll', function(){
+			clearTimeout(user_idle);
+			if(idle_time === true){
+				$("body").append("<p>Welcome Back</p>");
+			}
+			
+			idle_time = false;
+			user_idle = setTimeout(function(){
+				
+				alert("This will give an alert after 18 minutes");
+				
+				idle_time = true;
+			}, idle_wait);
+			
+			});
+			
+			$('body').trigger("mousemove");
+		})(jQuery)
+}
+</script>
+</head>
+<body>
+
+</body>
+</html>
